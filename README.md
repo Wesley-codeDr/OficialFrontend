@@ -75,12 +75,12 @@ pnpm start            # Inicia servidor de produção
 
 ### Qualidade de Código
 ```bash
-pnpm lint             # Executa ESLint
-pnpm lint:fix         # Corrige problemas de lint automaticamente
 pnpm typecheck        # Verificação de tipos TypeScript
 pnpm format           # Formata código com Prettier
 pnpm format:check     # Verifica formatação
 ```
+
+> **Nota**: O comando `pnpm lint` será configurado em uma atualização futura com compatibilidade ESLint 9.
 
 ### Testes
 ```bash

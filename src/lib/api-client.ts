@@ -35,6 +35,16 @@ export class ApiClient {
         throw error
       }
 
+      // Handle empty responses (204 No Content, etc.)
+      if (response.status === 204 || response.headers.get("content-length") === "0") {
+        return {} as T
+      }
+
+      const contentType = response.headers.get("content-type")
+      if (!contentType || !contentType.includes("application/json")) {
+        throw new Error("Response is not JSON")
+      }
+
       return response.json()
     } catch (error) {
       console.error("API request failed:", error)
